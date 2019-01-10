@@ -5,7 +5,7 @@ contract Campaign {
     struct Request {
         string description;
         uint value;
-        address recipient;
+        address payable recipient; // payable needed in solc compiler 5.0.0
         bool complete;
         uint approvalCount;
         mapping(address => bool) approvals;
@@ -34,7 +34,7 @@ contract Campaign {
         approversCount++;
     }
 
-    function createRequest(string memory description, uint value, address recipient) public restricted payable {
+    function createRequest(string memory description, uint value, address payable recipient) public restricted payable {
         Request memory newRequest = Request({
             description : description,
             value : value,
