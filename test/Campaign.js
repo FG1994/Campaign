@@ -14,21 +14,20 @@ const chai = require('chai');
 const expect = chai.expect;
 
 /**
- * AssetContainerBase contract
+ * Campaign contract
  */
-contract('AssetContainerBase', () => {
+contract('Campaign', (accounts) => {
     let campaign;
 
+    const owner = accounts[0];
+
     beforeEach(async () => {
-        campaign = await Campaign.new();
+        campaign = await Campaign.new(1, owner);  // this deploy campaign
     });
 
-    it('campaign is deployed', async () => {
-        expect(web3.utils.isAdress(campaign)).to.equal(true);
-    });
     it('marks caller as the campagin manager', async () => {
-        const manager = await campaign.methods.manager().call();
-        assert.equal(accounts[0], manager);   //assert that accont 0 is the manager
+        const manager = await campaign.manager();
+        expect(manager).to.be.equal(owner);   //assert that account 0 is the manager
     });
 
     it('allows people to contribute money and marks them as approvers', async () => {

@@ -24,6 +24,6 @@ contract('CampaignFactory', () => {
     });
 
     it('should check proper construction', async () => {
-        // TODO and more test
+
     });
 });

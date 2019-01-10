@@ -4,10 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "compile": "truffle compile --all",
+    "migrate": "truffle migrate --reset --compile-all --network _development",
+    "migrate-verbose": "truffle migrate --reset --compile-all --verbose-rpc --network _development",
+    "test": "truffle test ",
+    "dev": "truffle develop",
+    "debug": "truffle debug"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "openzeppelin-solidity": "^2.1.0-rc.2"
+  },
   "devDependencies": {
     "@types/jasmine": "^2.8.6",
     "artifacts": "^0.0.1",
@@ -44,13 +52,5 @@
     "truffle": "^5.0.0-beta.2",
     "truffle-flattener": "^1.2.10",
     "truffle-hdwallet-provider": "^1.0.0-web3one.5"
-  },
-  "scripts": {
-    "compile": "truffle compile --all",
-    "migrate": "truffle migrate --reset --compile-all --network _development",
-    "migrate-verbose": "truffle migrate --reset --compile-all --verbose-rpc --network _development",
-    "test": "truffle test ",
-    "dev": "truffle develop",
-    "debug": "truffle debug",
   }
 }

@@ -7,6 +7,6 @@ const CampaignFactory = artifacts.require('./CampaignFactory.sol');
 module.exports = async function (deployer, network, accounts) { // eslint-disable-line
     const owner = accounts[0];
 
-    await deployer.deploy(Campaign);
+    await deployer.deploy(Campaign, 2, owner);
     await deployer.deploy(CampaignFactory);
 };
